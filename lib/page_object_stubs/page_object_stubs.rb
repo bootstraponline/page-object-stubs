@@ -10,7 +10,7 @@ module PageObjectStubs
     # ```
     #
     # @param [Hash] opts
-    # @option opts [File] :targets Array of target files to create stubs from (required)
+    # @option opts [Array<File>] :targets Array of target files to create stubs from (required)
     # @option opts [Dir] :output_folder Folder to create stubs in (required)
     # @option opts [Boolean] :angularjs Enable angularjs support (optional, default false)
     def generate opts={}
