@@ -1,7 +1,5 @@
 module PageObjectStubs
   class << self
-    # todo: have stubs raise error when invoked (raise 'stub xy called!')
-
     # Creates stubs from target Ruby files in output folder with the format
     # target_filename_stub.rb
     #
