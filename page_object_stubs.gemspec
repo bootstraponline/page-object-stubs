@@ -1,6 +1,8 @@
 require_relative 'lib/page_object_stubs/version'
 
 Gem::Specification.new do |spec|
+  spec.required_ruby_version = '>= 1.9.3'
+
   spec.name    = 'page_object_stubs'
   spec.version = PageObjectStubs::VERSION
   spec.date    = PageObjectStubs::DATE
