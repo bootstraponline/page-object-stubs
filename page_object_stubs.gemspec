@@ -1,4 +1,4 @@
-require_relative 'lib/page_object_stubs/versiono'
+require_relative 'lib/page_object_stubs/version'
 
 Gem::Specification.new do |spec|
   spec.name    = 'page_object_stubs'
@@ -16,6 +16,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'parser', '~> 2.2.2.2'
 
+  spec.add_development_dependency 'pry', '~> 0.10.1'
   spec.add_development_dependency 'appium_thor', '~> 0.0.7'
   spec.add_development_dependency 'fakefs', '~> 0.6.7'
   spec.add_development_dependency 'rspec', '~> 3.2.0'

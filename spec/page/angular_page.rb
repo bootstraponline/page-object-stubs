@@ -2,7 +2,10 @@ module Page
   class AngularPage
     include PageObject
 
-    page_url 'https://https://angularjs.com/'
+    page_url 'https://angularjs.com/'
+
+
+    link 'download_button', css: 'a.btn.btn-large.btn-primary'
   end
 end
 
