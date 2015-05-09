@@ -3,16 +3,15 @@ require_relative 'lib/page_object_stubs/versiono'
 Gem::Specification.new do |spec|
   spec.name    = 'page_object_stubs'
   spec.version = PageObjectStubs::VERSION
-  spec.authors = ['bootstraponline']
-  spec.email   = ['code@bootstraponline.com']
+  spec.date    = PageObjectStubs::DATE
+  spec.license = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+  spec.authors = spec.email = ['code@bootstraponline.com']
 
   spec.summary     = spec.description = 'PageObject stub generator for RubyMine'
   spec.description += '.' # avoid identical warning
   spec.homepage    = 'https://github.com/bootstraponline/page-object-stubs'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
-  spec.bindir        = 'exe'
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
   spec.add_runtime_dependency 'parser', '~> 2.2.2.2'
