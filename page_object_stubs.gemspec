@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
 
   spec.summary     = spec.description = 'PageObject stub generator for RubyMine'
   spec.description += '.' # avoid identical warning
-  spec.homepage    = 'https://github.com/bootstraponline/page-object-stubs'
+  spec.homepage    = 'https://github.com/bootstraponline/page_object_stubs'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.require_paths = ['lib']
