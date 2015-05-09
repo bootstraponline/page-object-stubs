@@ -1,4 +1,4 @@
-# PageObjectStubs [![Build Status](https://travis-ci.org/bootstraponline/page_object_stubs.svg?branch=master)](https://travis-ci.org/bootstraponline/page_object_stubs)
+# PageObjectStubs [![Build Status](https://travis-ci.org/bootstraponline/page_object_stubs.svg?branch=master)](https://travis-ci.org/bootstraponline/page_object_stubs) [![Gem Version](https://badge.fury.io/rb/page_object_stubs.svg)](https://rubygems.org/gems/page_object_stubs)
 
 PageObject stub generator for RubyMine.
 
