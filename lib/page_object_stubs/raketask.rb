@@ -8,7 +8,6 @@ module PageObjectStubs
     # @option opts [String] :task_desc the description of the stubs task (optional)
     # @option opts [lambda] :targets lambda that will return an array of targets (optional)
     # @option opts [lambda] :output_folder lambda that will return the output folder (optional)
-    # @option opts [Boolean] :angularjs generate angularjs stubs. default true (optional)
     def add_stubs_task opts={}
       task_name     = opts.fetch(:task_name, 'stubs')
       task_desc     = opts.fetch(:task_desc, 'Generate stubs')
@@ -16,7 +15,6 @@ module PageObjectStubs
       # Get the dir that contains the Rakefile via Rake (__dir__ will not work)
       targets       = opts.fetch(:targets, lambda { Dir.glob(File.join(Rake.application.original_dir, 'page', '*_page.rb')) })
       output_folder = opts.fetch(:output_folder, lambda { File.join(Rake.application.original_dir, 'helper', 'stub') })
-      angularjs     = opts.fetch(:angularjs, true)
 
       raise 'targets must be a lambda' unless targets.lambda?
       raise 'output_folder must be a lambda' unless output_folder.lambda?
@@ -24,8 +22,7 @@ module PageObjectStubs
       Rake.application.last_description = task_desc
       Rake::Task.define_task task_name do
         PageObjectStubs.generate targets:       targets.call,
-                                 output_folder: output_folder.call,
-                                 angularjs:     angularjs
+                                 output_folder: output_folder.call
       end
     end
   end

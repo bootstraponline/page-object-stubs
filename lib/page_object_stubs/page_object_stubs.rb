@@ -12,11 +12,9 @@ module PageObjectStubs
     # @param [Hash] opts
     # @option opts [Array<File>] :targets Array of target files to create stubs from (required)
     # @option opts [Dir] :output_folder Folder to create stubs in (required)
-    # @option opts [Boolean] :angularjs Enable angularjs support (optional, default false)
     def generate opts={}
-      angularjs = !!opts.fetch(:angularjs, false)
-      targets   = opts.fetch(:targets)
-      targets   = targets.select do |target|
+      targets = opts.fetch(:targets)
+      targets = targets.select do |target|
         File.file?(target) && File.readable?(target)
       end
 
@@ -45,10 +43,10 @@ R
 
         page_objects.name_type_pairs.each do |pair|
           element_type = pair.first
+          # if 'page_url' exists, then we need `def goto`
+          # for all others, we need the name of the element to generate the remaining methods.
           if element_type == 'page_url'
             output += wrap 'goto'
-            # visit loads goto then runs the Protractor waitForAngular JavaScript
-            output += wrap 'visit' if angularjs
             next
           end
 
@@ -62,29 +60,31 @@ R
         end
 
 
-        stub_file = File.join(output_folder, file_name + '_stub.rb')
+        stub_file      = File.join(output_folder, file_name + '_stub.rb')
+
+        # Note that the page method is defined as a singleton method on the
+        # top level 'main' object. This ensures we're not polluting the global
+        # object space by defining methods on every object which would happen
+        # if Kernel was used instead.
 
         output_postfix = <<R
     end
   end
 end
 
-module Kernel
-  def #{file_method_name}
-    Stub::#{file_module_name}
-  end
-end unless Kernel.respond_to? :#{file_method_name}
+public
+
+def #{file_method_name}
+  Stub::#{file_module_name}
+end
 R
 
         output = output_prefix + output + output_postfix
 
         File.open(stub_file, 'w') do |file|
-          file.write output.strip
+          file.write output
         end
       end
-
-# if 'page_url' exists, then we need `def goto`
-# for all others, we need the name of the element to generate the remaining methods.
     end
   end
 end

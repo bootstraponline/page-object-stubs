@@ -4,7 +4,8 @@ module Page
 
     page_url 'https://angularjs.com/'
 
-    link 'download_button', css: 'a.btn.btn-large.btn-primary'
+    link    'download_button', css: 'a.btn.btn-large.btn-primary'
+    element :download_button2, css: 'a[ng-click="showDownloadModal()"]'
   end
 end
 

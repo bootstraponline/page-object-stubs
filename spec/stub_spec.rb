@@ -9,7 +9,6 @@ describe 'page object stubs' do
   end
 
   def test_generate opts={}
-    angularjs         = opts.fetch(:angularjs)
     page_dir          = join(__dir__, 'page')
     actual_stub_dir   = join(__dir__, 'actual_stub')
     expected_stub_dir = join(__dir__, 'expected_stub')
@@ -17,7 +16,7 @@ describe 'page object stubs' do
     targets = glob(join(page_dir, '*_page.rb'))
     output  = actual_stub_dir
 
-    PageObjectStubs.generate targets: targets, output_folder: output, angularjs: angularjs
+    PageObjectStubs.generate targets: targets, output_folder: output
 
     actual_stub = read join(actual_stub_dir, 'angular_page_stub.rb')
 
@@ -31,11 +30,7 @@ describe 'page object stubs' do
     expect(actual_stub).to eq(expected_stub)
   end
 
-  it 'generates stubs correctly without angularjs support' do
-    test_generate angularjs: false
-  end
-
-  it 'generates stubs correctly with angularjs support' do
-    test_generate angularjs: true
+  it 'generates stubs correctly' do
+    test_generate
   end
 end
