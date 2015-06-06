@@ -1,3 +1,9 @@
+#### v1.0.0 2015-06-06
+
+- [df4833e](https://github.com/bootstraponline/page_object_stubs/commit/df4833e0856873e581498d4a024b6d832a84bc66) Release 1.0.0
+- [bcd8c46](https://github.com/bootstraponline/page_object_stubs/commit/bcd8c46a5025956e9bddc7d5655e29177826a50b) Use top level singleton instead of Kernel method
+
+
 #### v0.0.3 2015-05-10
 
 - [fb08c84](https://github.com/bootstraponline/page_object_stubs/commit/fb08c84b55849da5fdd8d0e517d02addd9aebd6d) Release 0.0.3
