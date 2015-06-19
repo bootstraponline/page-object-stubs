@@ -72,10 +72,14 @@ R
   end
 end
 
-public
-
-def #{file_method_name}
-  Stub::#{file_module_name}
+module RSpec
+  module Core
+    class ExampleGroup
+      def #{file_method_name}
+        Stub::#{file_module_name}
+      end
+    end
+  end
 end
 R
 
