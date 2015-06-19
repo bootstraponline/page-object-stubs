@@ -2,7 +2,7 @@
 [![Gem Version](https://badge.fury.io/rb/page_object_stubs.svg)](https://rubygems.org/gems/page_object_stubs)
 [![Dependency Status](https://gemnasium.com/bootstraponline/page_object_stubs.svg?nocache)](https://gemnasium.com/bootstraponline/page_object_stubs)
 [![Build Status](https://travis-ci.org/bootstraponline/page_object_stubs.svg?branch=master)](https://travis-ci.org/bootstraponline/page_object_stubs/builds)
-[![Coverage Status](https://coveralls.io/repos/bootstraponline/page_object_stubs/badge.svg?nocache)](https://coveralls.io/r/bootstraponline/page_object_stubs)
+[![Coverage Status](https://coveralls.io/repos/bootstraponline/page_object_stubs/badge.svg?nocach)](https://coveralls.io/r/bootstraponline/page_object_stubs)
 
 [PageObject](https://github.com/cheezy/page-object) stub generator for RubyMine.
 

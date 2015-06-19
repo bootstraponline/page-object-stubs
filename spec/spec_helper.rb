@@ -1,6 +1,6 @@
 # gems
 require 'rubygems'
-
+require 'rake'
 require 'coveralls'
 Coveralls.wear!
 

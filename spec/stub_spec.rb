@@ -33,4 +33,8 @@ describe 'page object stubs' do
   it 'generates stubs correctly' do
     test_generate
   end
+
+  it 'adds rake task without erroring' do
+    PageObjectStubs.add_stubs_task
+  end
 end
