@@ -1,3 +1,11 @@
+#### v1.0.1 2015-06-19
+
+- [bb715a0](https://github.com/bootstraponline/page_object_stubs/commit/bb715a0db3bdf9822d566d1b4486deac616a529d) Release 1.0.1
+- [88c7892](https://github.com/bootstraponline/page_object_stubs/commit/88c7892a246769c2e0087b628fa0ee0afeabbea5) Avoid main object pollution. Define on rspec
+- [b010c03](https://github.com/bootstraponline/page_object_stubs/commit/b010c03cb571dfb39d28553b67d97656b6ec54f3) Test rake stubs task
+- [bb955ad](https://github.com/bootstraponline/page_object_stubs/commit/bb955ada5d7ee6bfa2b2dcd28aa32f5a1c9c8e01) Add coveralls and gemnasium
+
+
 #### v1.0.0 2015-06-06
 
 - [df4833e](https://github.com/bootstraponline/page_object_stubs/commit/df4833e0856873e581498d4a024b6d832a84bc66) Release 1.0.0
