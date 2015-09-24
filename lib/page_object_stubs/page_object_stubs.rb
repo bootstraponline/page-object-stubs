@@ -15,7 +15,7 @@ module PageObjectStubs
     # @param [Hash] opts
     # @option opts [Array<File>] :targets Array of target files to create stubs from (required)
     # @option opts [Dir] :output Folder to create stubs in (required)
-    # @option opts [Dir] :exclude Exclusion regex use to reject targets (optional)
+    # @option opts [Regexp] :exclude Exclusion regex use to reject targets (optional)
     def generate opts={}
       targets = opts.fetch(:targets)
       targets = targets.select do |target|
