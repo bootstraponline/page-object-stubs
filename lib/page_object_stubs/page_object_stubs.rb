@@ -3,6 +3,8 @@ module PageObjectStubs
     # Creates stubs from target Ruby files in output folder with the format
     # target_filename_stub.rb
     #
+    # Note the output folder is **DELETED** each time stubs are generated.
+    #
     # ```ruby
     # targets = Dir.glob(File.join(__dir__, '..', 'page', '*_page.rb'))
     # output = File.join(__dir__, '..', 'stub')
@@ -19,6 +21,7 @@ module PageObjectStubs
       end
 
       output_folder = File.expand_path(opts.fetch(:output_folder))
+      FileUtils.rm_rf output_folder
       FileUtils.mkdir_p output_folder
 
       targets.each do |f|
