@@ -1,3 +1,13 @@
+#### v2.0.0 2015-09-24
+
+- [8c5f194](https://github.com/bootstraponline/page_object_stubs/commit/8c5f1947d717aa0c8e434e1e26570375170090ab) Release 2.0.0
+- [e3e02a2](https://github.com/bootstraponline/page_object_stubs/commit/e3e02a25ad58e02721dd8a74343fc8de372b6ea6) Update readme
+- [00cb6fc](https://github.com/bootstraponline/page_object_stubs/commit/00cb6fc371bd10778c85697dfd98069092cc03b9) Add exclude regex
+- [f12a90c](https://github.com/bootstraponline/page_object_stubs/commit/f12a90cbcd190bcad7d2ddc01cec5ce755c0e088) Always remove old stubs
+- [b15a9c4](https://github.com/bootstraponline/page_object_stubs/commit/b15a9c4dacee4b0a7e1b3696fe74709ba3988e79) Enable stubbing of regular methods
+- [aa797d4](https://github.com/bootstraponline/page_object_stubs/commit/aa797d4dfb694f8e454ad821063408431a557ee5) Update dependencies
+
+
 #### v1.0.1 2015-06-19
 
 - [bb715a0](https://github.com/bootstraponline/page_object_stubs/commit/bb715a0db3bdf9822d566d1b4486deac616a529d) Release 1.0.1
