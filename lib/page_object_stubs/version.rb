@@ -1,4 +1,4 @@
 module PageObjectStubs
-  VERSION = '1.0.1' unless defined? ::PageObjectStubs::VERSION
-  DATE    = '2015-06-19' unless defined? ::PageObjectStubs::DATE
+  VERSION = '2.0.0' unless defined? ::PageObjectStubs::VERSION
+  DATE    = '2015-09-24' unless defined? ::PageObjectStubs::DATE
 end
