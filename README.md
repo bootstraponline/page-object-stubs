@@ -7,9 +7,10 @@
 [PageObject](https://github.com/cheezy/page-object) stub generator for RubyMine.
 
 ```ruby
-targets       = Dir.glob(File.join(__dir__, '..', 'page', '*_page.rb'))
-output_folder = File.join(__dir__, '..', 'stub')
-PageObjectStubs.generate targets: targets, output_folder: output_folder, angularjs: false
+targets = Dir.glob(File.join(__dir__, '..', 'page', '*_page.rb'))
+output  = File.join(__dir__, '..', 'stub')
+exclude = /#{Regexp.escape('base_page.rb')}/
+PageObjectStubs.generate targets: targets, output: output, exclude: exclude
 ```
 
 ```ruby
@@ -17,13 +18,6 @@ PageObjectStubs.generate targets: targets, output_folder: output_folder, angular
 # target_filename_stub.rb
 #
 # Note the output folder is **DELETED** each time stubs are generated.
-#
-# ```ruby
-# targets = Dir.glob(File.join(__dir__, '..', 'page', '*_page.rb'))
-# output = File.join(__dir__, '..', 'stub')
-# exclude = /#{Regexp.escape('base_page.rb')}/
-# PageObjectStubs.generate targets: targets, output: output, exclude: exclude
-# ```
 #
 # @param [Hash] opts
 # @option opts [Array<File>] :targets Array of target files to create stubs from (required)
