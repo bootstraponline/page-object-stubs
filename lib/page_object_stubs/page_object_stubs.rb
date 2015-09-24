@@ -42,6 +42,12 @@ R
         end
 
         page_objects.name_type_pairs.each do |pair|
+          # process custom methods that aren't defined in page_object
+          if pair.length == 1
+            output += wrap "#{pair.first}(*args)"
+            next
+          end
+
           element_type = pair.first
           # if 'page_url' exists, then we need `def goto`
           # for all others, we need the name of the element to generate the remaining methods.

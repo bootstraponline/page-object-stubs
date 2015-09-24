@@ -1,5 +1,4 @@
 module PageObjectStubs
-
   class ProcessPageObjects < Parser::AST::Processor
 
     attr_reader :name_type_pairs
@@ -59,6 +58,15 @@ table_cell table_row text_area text_field unordered_list video] + %w[page_url]
       _print_children c
       # node.type is send
       # the rest of the data is in the children.
+    end
+
+    def on_def node
+      if node.is_a?(AST::Node)
+        c = node.children
+        return unless c
+        method_name = c.first
+        @name_type_pairs << [method_name] if method_name.class == Symbol
+      end
     end
 
     def on_send node

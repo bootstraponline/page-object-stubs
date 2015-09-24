@@ -8,6 +8,7 @@ module Stub
       def download_button2; fail('stub called!'); end
       def download_button2_element; fail('stub called!'); end
       def download_button2?; fail('stub called!'); end
+      def visit(*args); fail('stub called!'); end
     end
   end
 end
