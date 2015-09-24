@@ -8,19 +8,24 @@ module PageObjectStubs
     # ```ruby
     # targets = Dir.glob(File.join(__dir__, '..', 'page', '*_page.rb'))
     # output = File.join(__dir__, '..', 'stub')
-    # PageObjectStubs.generate targets: targets, output: output
+    # exclude = /#{Regexp.escape('base_page.rb')}/
+    # PageObjectStubs.generate targets: targets, output: output, exclude: exclude
     # ```
     #
     # @param [Hash] opts
     # @option opts [Array<File>] :targets Array of target files to create stubs from (required)
-    # @option opts [Dir] :output_folder Folder to create stubs in (required)
+    # @option opts [Dir] :output Folder to create stubs in (required)
+    # @option opts [Dir] :exclude Exclusion regex use to reject targets (optional)
     def generate opts={}
       targets = opts.fetch(:targets)
       targets = targets.select do |target|
         File.file?(target) && File.readable?(target)
       end
 
-      output_folder = File.expand_path(opts.fetch(:output_folder))
+      regex = opts.fetch(:exclude, false)
+      targets.reject! { |t| t.match regex } if regex
+
+      output_folder = File.expand_path(opts.fetch(:output))
       FileUtils.rm_rf output_folder
       FileUtils.mkdir_p output_folder
 
@@ -38,7 +43,7 @@ module Stub
   module #{file_module_name}
     class << self
 R
-        output = ''
+        data = ''
 
         def wrap method_name
           ' ' * 6 + "def #{method_name}; fail('stub called!'); end" + "\n"
@@ -47,7 +52,7 @@ R
         page_objects.name_type_pairs.each do |pair|
           # process custom methods that aren't defined in page_object
           if pair.length == 1
-            output += wrap "#{pair.first}(*args)"
+            data += wrap "#{pair.first}(*args)"
             next
           end
 
@@ -55,17 +60,17 @@ R
           # if 'page_url' exists, then we need `def goto`
           # for all others, we need the name of the element to generate the remaining methods.
           if element_type == 'page_url'
-            output += wrap 'goto'
+            data += wrap 'goto'
             next
           end
 
           element_name = pair.last
 
-          output += wrap "#{element_name}"
-          output += wrap "#{element_name}_element"
-          output += wrap "#{element_name}?"
+          data += wrap "#{element_name}"
+          data += wrap "#{element_name}_element"
+          data += wrap "#{element_name}?"
 
-          output += wrap "#{element_name}=" if element_type == 'text_field'
+          data += wrap "#{element_name}=" if element_type == 'text_field'
         end
 
 
@@ -92,10 +97,10 @@ module RSpec
 end
 R
 
-        output = output_prefix + output + output_postfix
+        data = output_prefix + data + output_postfix
 
         File.open(stub_file, 'w') do |file|
-          file.write output
+          file.write data
         end
       end
     end

@@ -16,7 +16,9 @@ describe 'page object stubs' do
     targets = glob(join(page_dir, '*_page.rb'))
     output  = actual_stub_dir
 
-    PageObjectStubs.generate targets: targets, output_folder: output
+    PageObjectStubs.generate targets: targets,
+                             output: output,
+                             exclude: /#{Regexp.escape('base_page.rb')}/
 
     actual_stub = read join(actual_stub_dir, 'angular_page_stub.rb')
 
@@ -28,6 +30,9 @@ describe 'page object stubs' do
     expected_stub = read expected_stub
 
     expect(actual_stub).to eq(expected_stub)
+
+    # ensure base_page is excluded properly
+    expect(File.exist?(join(actual_stub_dir, 'base_page_stub.rb'))).to eq(false)
   end
 
   it 'generates stubs correctly' do
