@@ -1,3 +1,10 @@
+#### v2.0.1 2016-06-08
+
+- [96bed96](https://github.com/bootstraponline/page_object_stubs/commit/96bed9636a3e66679cdf3326d59395cf873a6670) Release 2.0.1
+- [5979cc9](https://github.com/bootstraponline/page_object_stubs/commit/5979cc978765ef78d6587d1aef30f9683c702200) Fix gem deps
+- [437579f](https://github.com/bootstraponline/page_object_stubs/commit/437579faa591c4e141fdc4b9902a484039748f35) Fix documentation
+
+
 #### v2.0.0 2015-09-24
 
 - [8c5f194](https://github.com/bootstraponline/page_object_stubs/commit/8c5f1947d717aa0c8e434e1e26570375170090ab) Release 2.0.0
